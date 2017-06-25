@@ -1,4 +1,4 @@
-package vlad.companies;
+package vlad.companies.entity;
 
 import java.math.BigDecimal;
 import java.util.Set;

@@ -1,9 +1,6 @@
-package vlad.companies;
+package vlad.companies.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Set;
 
@@ -19,6 +16,7 @@ public class CompanyEntity implements Company<CompanyEntity> {
     @OneToMany
     private Set<CompanyEntity> childCompanies;
 
+    @ManyToOne
     private CompanyEntity parent;
 
     /*Business methods*/
@@ -30,7 +28,6 @@ public class CompanyEntity implements Company<CompanyEntity> {
                 totalEarnings = totalEarnings.add(child.getTotalEarnings());
         return totalEarnings;
     }
-
     @Override
     public boolean addChild(Company child) {
         return childCompanies.add((CompanyEntity) child);
