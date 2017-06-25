@@ -1,7 +1,10 @@
 package vlad.companies.controller;
 
 import org.springframework.web.bind.annotation.*;
+import vlad.companies.Company;
 import vlad.companies.exception.CompanyNotFoundException;
+
+import java.util.Set;
 
 @RestController
 @RequestMapping("/companies")
