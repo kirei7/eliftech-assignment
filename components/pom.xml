@@ -12,4 +12,15 @@
     <artifactId>eliftech-assignment.components</artifactId>
 
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>vlad</groupId>
+            <artifactId>eliftech-assignment.domain</artifactId>
+        </dependency>
+    </dependencies>
+
 </project>
