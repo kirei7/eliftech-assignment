@@ -74,4 +74,21 @@ public class CompanyEntity implements Company<CompanyEntity> {
     public void setParent(CompanyEntity parent) {
         this.parent = parent;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (!(o instanceof CompanyEntity))
+            return false;
+
+        CompanyEntity that = (CompanyEntity) o;
+
+        return getName().equals(that.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        return getName().hashCode();
+    }
 }

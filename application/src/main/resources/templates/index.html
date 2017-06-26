@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Companies management</title>
+    <link href="css/main.css" rel="stylesheet">
+</head>
+<body>
+
+<main>
+
+    <div onclick="tree_toggle(arguments[0])">
+        <div class="Content">Companies</div>
+        <ul class="Container">
+            <li class="Node ExpandClosed">
+                <div class="Expand"></div>
+                <div class="Content">Item 1</div>
+                <ul class="Container">
+                    <li class="Node ExpandLeaf IsLast">
+                        <div class="Expand"></div>
+                        <div class="Content">Item 1.2</div>
+                    </li>
+                </ul>
+            </li>
+            <li class="Node ExpandClosed">
+                <div class="Expand"></div>
+                <div class="Content">Item 2</div>
+                <ul class="Container">
+                    <li class="Node ExpandLeaf IsLast">
+                        <div class="Expand"></div>
+                        <div class="Content">Item 2.2</div>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+
+    </div>
+
+</main>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/tree.js"></script>
+</body>
+</html>

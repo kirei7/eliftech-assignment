@@ -13,4 +13,9 @@ public class EliftechAssignmentApplicationTests {
 	public void contextLoads() {
 	}
 
+	/*@SpringBootApplication
+	@Import(ServiceConfiguration.class)
+	static class TestConfiguration {
+	}
+	*/
 }

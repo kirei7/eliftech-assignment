@@ -8,19 +8,13 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
 
-    <artifactId>eliftech-assignment.components</artifactId>
+    <artifactId>eliftech-assignment.core</artifactId>
 
-
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>vlad</groupId>
-            <artifactId>eliftech-assignment.domain</artifactId>
-        </dependency>
-    </dependencies>
+    <modules>
+        <module>components</module>
+        <module>domain</module>
+    </modules>
 
 </project>
