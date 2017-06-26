@@ -17,8 +17,7 @@ public class CompanyEntity implements Company<CompanyEntity> {
     @OneToMany(fetch = FetchType.EAGER,  cascade = CascadeType.ALL)
     private Set<CompanyEntity> childCompanies = new HashSet<>();
 
-    @ManyToOne
-    private CompanyEntity parent;
+    private String parentName;
 
     /*Business methods*/
     @Override
@@ -67,13 +66,13 @@ public class CompanyEntity implements Company<CompanyEntity> {
     }
 
     @Override
-    public Company getParent() {
-        return parent;
+    public String getParentName() {
+        return parentName;
     }
 
     @Override
-    public void setParent(CompanyEntity parent) {
-        this.parent = parent;
+    public void setParentName(String parentName) {
+        this.parentName = parentName;
     }
 
     @Override

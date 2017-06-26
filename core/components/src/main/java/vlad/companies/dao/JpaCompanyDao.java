@@ -17,7 +17,7 @@ public class JpaCompanyDao implements CompanyDao<CompanyEntity>{
 
     @Override
     public Set<CompanyEntity> getMainCompanies() {
-        return repository.findByParentIsNull();
+        return repository.findByParentNameIsNull();
     }
 
     @Override
@@ -25,6 +25,7 @@ public class JpaCompanyDao implements CompanyDao<CompanyEntity>{
         if (parentCompany != null) {
             parentCompany.addChild(company);
             repository.save(parentCompany);
+            company.setParentName(parentCompany.getName());
         }
         return repository.save(company);
     }
