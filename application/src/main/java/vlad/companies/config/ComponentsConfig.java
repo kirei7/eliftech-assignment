@@ -17,4 +17,9 @@ public class ComponentsConfig {
     public CompanyService companyService() {
         return new CompanyServiceImpl(companyDao);
     }
+
+    @Bean
+    public InMemoryDbInitializer inMemoryDbInitializer() {
+        return new InMemoryDbInitializer(companyService());
+    }
 }

@@ -22,8 +22,10 @@ public class JpaCompanyDao implements CompanyDao<CompanyEntity>{
 
     @Override
     public CompanyEntity save(CompanyEntity company, CompanyEntity parentCompany) {
-        parentCompany.addChild(company);
-        repository.save(parentCompany);
+        if (parentCompany != null) {
+            parentCompany.addChild(company);
+            repository.save(parentCompany);
+        }
         return repository.save(company);
     }
 

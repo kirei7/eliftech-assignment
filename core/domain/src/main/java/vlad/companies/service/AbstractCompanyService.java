@@ -20,6 +20,7 @@ public abstract class AbstractCompanyService implements CompanyService{
 
     @Override
     public Company save(Company company, String parentName) throws RawCompanyNotFoundException {
+        if (parentName == null) return companyDao.save(company, null);
         Company parentCompany = findByName(parentName);
         if (parentCompany == null) throw new RawCompanyNotFoundException(parentName);
         return companyDao.save(company, parentCompany);
@@ -32,6 +33,7 @@ public abstract class AbstractCompanyService implements CompanyService{
 
     @Override
     public Company findByName(String name) {
+        if (name == null || name.trim().isEmpty()) return null;
         return companyDao.findByName(name);
     }
 }

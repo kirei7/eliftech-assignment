@@ -2,6 +2,7 @@ package vlad.companies.entity;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -13,8 +14,8 @@ public class CompanyEntity implements Company<CompanyEntity> {
     @Column(nullable = false)
     private BigDecimal estimatedEarnings;
 
-    @OneToMany
-    private Set<CompanyEntity> childCompanies;
+    @OneToMany(fetch = FetchType.EAGER,  cascade = CascadeType.ALL)
+    private Set<CompanyEntity> childCompanies = new HashSet<>();
 
     @ManyToOne
     private CompanyEntity parent;
