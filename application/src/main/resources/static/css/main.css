@@ -1,3 +1,5 @@
+
+
 /* контейнер просто содержит узлы.
  Узел сам будет отвечать за свой отступ */
 .Container {
@@ -76,7 +78,7 @@
 }
 
 /* это правило - ниже .Node, поэтому имеет больший приоритет */
-.IsLast {
+.Node.ExpandClosed:last-child {
     /* добавить соединительную черточку наверх */
     background-image: url(../img/i_half.gif);
     background-repeat : no-repeat;
@@ -96,4 +98,9 @@
 
 .ExpandLeaf .Expand {
     cursor: auto; /* листовой узел */
+}
+
+.Node button {
+    height: 20px;
+    line-height: 0.7;
 }

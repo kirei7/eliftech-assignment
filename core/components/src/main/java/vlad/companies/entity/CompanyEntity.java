@@ -89,6 +89,15 @@ public class CompanyEntity implements Company<CompanyEntity> {
 
     @Override
     public int hashCode() {
-        return getName().hashCode();
+        return getName() != null ? getName().hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return "CompanyEntity{" +
+                "name='" + name + '\'' +
+                ", estimatedEarnings=" + estimatedEarnings +
+                ", parentName='" + parentName + '\'' +
+                '}';
     }
 }

@@ -14,4 +14,6 @@ public interface CompanyService {
     void delete(Company company);
 
     Company findByName(String name);
+
+    Company newCompany();
 }

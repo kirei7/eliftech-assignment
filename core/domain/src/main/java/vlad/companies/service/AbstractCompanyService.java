@@ -3,14 +3,17 @@ package vlad.companies.service;
 import vlad.companies.dao.CompanyDao;
 import vlad.companies.entity.Company;
 import vlad.companies.exception.RawCompanyNotFoundException;
+import vlad.companies.factory.CompanyFactory;
 
 import java.util.Set;
 
 public abstract class AbstractCompanyService implements CompanyService{
     private CompanyDao companyDao;
+    private CompanyFactory companyFactory;
 
-    public AbstractCompanyService(CompanyDao companyDao) {
+    public AbstractCompanyService(CompanyDao companyDao, CompanyFactory companyFactory) {
         this.companyDao = companyDao;
+        this.companyFactory = companyFactory;
     }
 
     @Override
@@ -20,7 +23,7 @@ public abstract class AbstractCompanyService implements CompanyService{
 
     @Override
     public Company save(Company company, String parentName) throws RawCompanyNotFoundException {
-        if (parentName == null) return companyDao.save(company, null);
+        if (parentName == null || parentName.trim().isEmpty()) return companyDao.save(company, null);
         Company parentCompany = findByName(parentName);
         if (parentCompany == null) throw new RawCompanyNotFoundException(parentName);
         return companyDao.save(company, parentCompany);
@@ -35,5 +38,10 @@ public abstract class AbstractCompanyService implements CompanyService{
     public Company findByName(String name) {
         if (name == null || name.trim().isEmpty()) return null;
         return companyDao.findByName(name);
+    }
+
+    @Override
+    public Company newCompany() {
+        return companyFactory.create();
     }
 }

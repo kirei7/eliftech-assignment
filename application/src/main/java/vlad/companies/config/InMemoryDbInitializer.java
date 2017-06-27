@@ -19,6 +19,10 @@ public class InMemoryDbInitializer {
         Company childCompany = new CompanyEntity();
         childCompany.setName("ChildComp");
         childCompany.setEstimatedEarnings(new BigDecimal(1000.5));
+        Company childCompany2 = new CompanyEntity();
+        childCompany2.setName("ChildComp2");
+        childCompany2.setEstimatedEarnings(new BigDecimal(500));
+
 
         Company rootCompany1 = new CompanyEntity();
         rootCompany1.setName("Root company inc.");
@@ -32,6 +36,7 @@ public class InMemoryDbInitializer {
             service.save(rootCompany1, null);
             service.save(rootCompany2, null);
             service.save(childCompany, rootCompany1.getName());
+            service.save(childCompany2, rootCompany1.getName());
         } catch (Exception ex) {
             ex.printStackTrace();
         }
