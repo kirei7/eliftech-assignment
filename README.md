@@ -1,6 +1,6 @@
 # eliftech-assignment
 
-Requirements: java8, maven 3+,
+Requirements: java8, maven 3+
 
 Build & Launch
 
